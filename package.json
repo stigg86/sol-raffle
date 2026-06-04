@@ -1,0 +1,19 @@
+{
+  "name": "sol-raffle",
+  "version": "0.1.0",
+  "description": "Decentralized raffle dApp on Solana with multiple tiers",
+  "scripts": {
+    "test": "jest tests/",
+    "deploy": "anchor deploy",
+    "build": "anchor build"
+  },
+  "dependencies": {
+    "@project-serum/anchor": "^0.30.0",
+    "@solana/web3.js": "^1.87.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  }
+}
