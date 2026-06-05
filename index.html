@@ -20,8 +20,8 @@
         
         .felt-bg {
             background: 
-                radial-gradient(ellipse at 50% 0%, rgba(0,80,40,0.4) 0%, transparent 60%),
-                linear-gradient(180deg, #0d2118 0%, #0a1612 100%);
+                radial-gradient(ellipse at 50% 0%, rgba(0,80,40,0.3) 0%, transparent 60%),
+                linear-gradient(180deg, #1a2f23 0%, #0a1612 100%);
             min-height: 100vh;
             padding: 40px 20px;
         }
@@ -151,85 +151,109 @@
         .tiers-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
             margin-bottom: 50px;
         }
         
         .tier-card {
-            background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-            border: 1px solid rgba(212,175,55,0.25);
-            border-radius: 4px;
-            padding: 30px 20px;
+            background: linear-gradient(180deg, #f5f5dc 0%, #e8e4c9 100%);
+            border-radius: 8px;
+            padding: 0;
             text-align: center;
             transition: all 0.3s;
             position: relative;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            transform: rotate(-1deg);
             overflow: hidden;
         }
         
+        .tier-card:nth-child(2) { transform: rotate(1deg); }
+        .tier-card:nth-child(3) { transform: rotate(-0.5deg); }
+        .tier-card:nth-child(4) { transform: rotate(0.5deg); }
+        .tier-card:nth-child(5) { transform: rotate(-1deg); }
+        .tier-card:nth-child(6) { transform: rotate(0.8deg); }
+        
+        .tier-card:hover {
+            transform: translateY(-8px) rotate(0deg);
+            box-shadow: 8px 12px 0 rgba(0,0,0,0.2);
+        }
+        
+        /* Perforated edge */
         .tier-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+            left: -5px;
+            width: 10px;
+            height: 100%;
+            background: radial-gradient(circle at 2px 50%, transparent 6px, #0a1612 6px);
+            background-size: 10px 16px;
+        }
+        
+        .tier-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 10px;
+            height: 100%;
+            background: radial-gradient(circle at 8px 50%, transparent 6px, #0a1612 6px);
+            background-size: 10px 16px;
+        }
+        
+        .tier-top {
             background: var(--tier-color);
+            padding: 12px 15px;
+            border-bottom: 3px dashed rgba(0,0,0,0.2);
         }
-        
-        .tier-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--tier-color);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-        }
-        
-        .tier-card.bronze { --tier-color: #cd7f32; }
-        .tier-card.silver { --tier-color: #c0c0c0; }
-        .tier-card.gold { --tier-color: #d4af37; }
-        .tier-card.platinum { --tier-color: #e5e4e2; }
-        .tier-card.diamond { --tier-color: #b9f2ff; }
-        .tier-card.vip { --tier-color: #9945FF; }
         
         .tier-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--tier-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .tier-bottom {
+            padding: 20px 15px;
+            color: #2a2a2a;
         }
         
         .tier-price {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: #fff;
-            margin: 15px 0;
+            color: #1a1a1a;
         }
         
         .tier-prize {
             font-size: 0.85rem;
-            color: #8b8b7a;
-            margin-bottom: 8px;
+            color: #555;
+            margin-top: 5px;
         }
         
         .tier-prize strong {
-            color: #d4af37;
+            color: var(--tier-color);
             font-weight: 700;
         }
         
         .tier-tickets {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 20px;
+            font-size: 0.75rem;
+            color: #777;
+            margin: 10px 0;
         }
         
         .tier-progress {
             width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
+            height: 8px;
+            background: #ccc;
+            border-radius: 4px;
             margin-bottom: 15px;
             overflow: hidden;
+            border: 2px solid #999;
         }
         
         .tier-progress-fill {
@@ -240,24 +264,32 @@
         
         .buy-btn {
             background: linear-gradient(180deg, #c41e3a 0%, #8b1528 100%);
-            border: 1px solid #ff4757;
-            padding: 12px 30px;
+            border: 3px solid #ff4757;
+            padding: 12px 25px;
             font-family: 'Lato', sans-serif;
             font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             color: #fff;
-            transition: all 0.3s;
-            width: 100%;
+            transition: all 0.2s;
+            width: 90%;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
         }
         
         .buy-btn:hover:not(:disabled) {
             background: linear-gradient(180deg, #d4af37 0%, #b8962e 100%);
             border-color: #ffd700;
             color: #0a0a0a;
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+        }
+        
+        .buy-btn:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
         }
         
         .buy-btn:disabled {
@@ -266,8 +298,8 @@
         }
         
         .buy-btn.processing {
-            background: #333;
-            border-color: #555;
+            background: #666;
+            border-color: #888;
         }
         
         /* Winner Section */
@@ -374,58 +406,82 @@
             <h2 class="section-title">Select Your Tier</h2>
             
             <div class="tiers-grid" id="tiers-grid">
-                <div class="tier-card bronze">
-                    <div class="tier-name">Bronze</div>
-                    <div class="tier-price">0.01 SOL</div>
-                    <div class="tier-prize">Prize: <strong>1 SOL</strong></div>
-                    <div class="tier-tickets"><span id="bronze-sold">0</span>/100 sold</div>
-                    <div class="tier-progress"><div class="tier-progress-fill" id="bronze-bar" style="width: 0%"></div></div>
-                    <button class="buy-btn" data-tier="0">Buy Ticket</button>
+                <div class="tier-card bronze" style="--tier-color: #cd7f32;">
+                    <div class="tier-top" style="background: linear-gradient(180deg, #e8955a 0%, #cd7f32 100%);">
+                        <div class="tier-name">Bronze</div>
+                    </div>
+                    <div class="tier-bottom">
+                        <div class="tier-price">0.01 SOL</div>
+                        <div class="tier-prize">Prize: <strong>1 SOL</strong></div>
+                        <div class="tier-tickets"><span id="bronze-sold">0</span>/100 sold</div>
+                        <div class="tier-progress"><div class="tier-progress-fill" id="bronze-bar" style="width: 0%"></div></div>
+                        <button class="buy-btn" data-tier="0">Buy Ticket</button>
+                    </div>
                 </div>
                 
-                <div class="tier-card silver">
-                    <div class="tier-name">Silver</div>
-                    <div class="tier-price">0.05 SOL</div>
-                    <div class="tier-prize">Prize: <strong>5 SOL</strong></div>
-                    <div class="tier-tickets"><span id="silver-sold">0</span>/100 sold</div>
-                    <div class="tier-progress"><div class="tier-progress-fill" id="silver-bar" style="width: 0%"></div></div>
-                    <button class="buy-btn" data-tier="1">Buy Ticket</button>
+                <div class="tier-card silver" style="--tier-color: #a8a8a8;">
+                    <div class="tier-top" style="background: linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 100%);">
+                        <div class="tier-name">Silver</div>
+                    </div>
+                    <div class="tier-bottom">
+                        <div class="tier-price">0.05 SOL</div>
+                        <div class="tier-prize">Prize: <strong>5 SOL</strong></div>
+                        <div class="tier-tickets"><span id="silver-sold">0</span>/100 sold</div>
+                        <div class="tier-progress"><div class="tier-progress-fill" id="silver-bar" style="width: 0%"></div></div>
+                        <button class="buy-btn" data-tier="1">Buy Ticket</button>
+                    </div>
                 </div>
                 
-                <div class="tier-card gold">
-                    <div class="tier-name">Gold</div>
-                    <div class="tier-price">0.1 SOL</div>
-                    <div class="tier-prize">Prize: <strong>10 SOL</strong></div>
-                    <div class="tier-tickets"><span id="gold-sold">0</span>/100 sold</div>
-                    <div class="tier-progress"><div class="tier-progress-fill" id="gold-bar" style="width: 0%"></div></div>
-                    <button class="buy-btn" data-tier="2">Buy Ticket</button>
+                <div class="tier-card gold" style="--tier-color: #d4af37;">
+                    <div class="tier-top" style="background: linear-gradient(180deg, #f0c850 0%, #d4af37 100%);">
+                        <div class="tier-name">Gold</div>
+                    </div>
+                    <div class="tier-bottom">
+                        <div class="tier-price">0.1 SOL</div>
+                        <div class="tier-prize">Prize: <strong>10 SOL</strong></div>
+                        <div class="tier-tickets"><span id="gold-sold">0</span>/100 sold</div>
+                        <div class="tier-progress"><div class="tier-progress-fill" id="gold-bar" style="width: 0%"></div></div>
+                        <button class="buy-btn" data-tier="2">Buy Ticket</button>
+                    </div>
                 </div>
                 
-                <div class="tier-card platinum">
-                    <div class="tier-name">Platinum</div>
-                    <div class="tier-price">0.2 SOL</div>
-                    <div class="tier-prize">Prize: <strong>20 SOL</strong></div>
-                    <div class="tier-tickets"><span id="platinum-sold">0</span>/100 sold</div>
-                    <div class="tier-progress"><div class="tier-progress-fill" id="platinum-bar" style="width: 0%"></div></div>
-                    <button class="buy-btn" data-tier="3">Buy Ticket</button>
+                <div class="tier-card platinum" style="--tier-color: #7a8b9a;">
+                    <div class="tier-top" style="background: linear-gradient(180deg, #9aa8b5 0%, #7a8b9a 100%);">
+                        <div class="tier-name">Platinum</div>
+                    </div>
+                    <div class="tier-bottom">
+                        <div class="tier-price">0.2 SOL</div>
+                        <div class="tier-prize">Prize: <strong>20 SOL</strong></div>
+                        <div class="tier-tickets"><span id="platinum-sold">0</span>/100 sold</div>
+                        <div class="tier-progress"><div class="tier-progress-fill" id="platinum-bar" style="width: 0%"></div></div>
+                        <button class="buy-btn" data-tier="3">Buy Ticket</button>
+                    </div>
                 </div>
                 
-                <div class="tier-card diamond">
-                    <div class="tier-name">Diamond</div>
-                    <div class="tier-price">0.5 SOL</div>
-                    <div class="tier-prize">Prize: <strong>50 SOL</strong></div>
-                    <div class="tier-tickets"><span id="diamond-sold">0</span>/100 sold</div>
-                    <div class="tier-progress"><div class="tier-progress-fill" id="diamond-bar" style="width: 0%"></div></div>
-                    <button class="buy-btn" data-tier="4">Buy Ticket</button>
+                <div class="tier-card diamond" style="--tier-color: #00b4d8;">
+                    <div class="tier-top" style="background: linear-gradient(180deg, #48cae4 0%, #00b4d8 100%);">
+                        <div class="tier-name">Diamond</div>
+                    </div>
+                    <div class="tier-bottom">
+                        <div class="tier-price">0.5 SOL</div>
+                        <div class="tier-prize">Prize: <strong>50 SOL</strong></div>
+                        <div class="tier-tickets"><span id="diamond-sold">0</span>/100 sold</div>
+                        <div class="tier-progress"><div class="tier-progress-fill" id="diamond-bar" style="width: 0%"></div></div>
+                        <button class="buy-btn" data-tier="4">Buy Ticket</button>
+                    </div>
                 </div>
                 
-                <div class="tier-card vip">
-                    <div class="tier-name">VIP</div>
-                    <div class="tier-price">1 SOL</div>
-                    <div class="tier-prize">Prize: <strong>100 SOL</strong></div>
-                    <div class="tier-tickets"><span id="vip-sold">0</span>/100 sold</div>
-                    <div class="tier-progress"><div class="tier-progress-fill" id="vip-bar" style="width: 0%"></div></div>
-                    <button class="buy-btn" data-tier="5">Buy Ticket</button>
+                <div class="tier-card vip" style="--tier-color: #7b2cbf;">
+                    <div class="tier-top" style="background: linear-gradient(180deg, #9d4edd 0%, #7b2cbf 100%);">
+                        <div class="tier-name">VIP</div>
+                    </div>
+                    <div class="tier-bottom">
+                        <div class="tier-price">1 SOL</div>
+                        <div class="tier-prize">Prize: <strong>100 SOL</strong></div>
+                        <div class="tier-tickets"><span id="vip-sold">0</span>/100 sold</div>
+                        <div class="tier-progress"><div class="tier-progress-fill" id="vip-bar" style="width: 0%"></div></div>
+                        <button class="buy-btn" data-tier="5">Buy Ticket</button>
+                    </div>
                 </div>
             </div>
             
