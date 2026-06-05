@@ -61,7 +61,7 @@
         /* Wallet Section */
         .wallet-section { 
             text-align: center; 
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
         
         .wallet-btn {
@@ -102,7 +102,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             padding: 25px;
             background: rgba(212,175,55,0.08);
             border: 1px solid rgba(212,175,55,0.2);
@@ -115,7 +115,7 @@
         
         .stat-value {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #d4af37;
         }
@@ -151,18 +151,20 @@
         .tiers-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 50px;
+            gap: 16px;
+            margin-bottom: 30px;
         }
         
         .tier-card {
+            max-width: 220px;
+            margin: 0 auto;
             background: linear-gradient(180deg, #f5f5dc 0%, #e8e4c9 100%);
             border-radius: 8px;
             padding: 0;
             text-align: center;
             transition: all 0.3s;
             position: relative;
-            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
             transform: rotate(-1deg);
             overflow: hidden;
         }
@@ -203,13 +205,13 @@
         
         .tier-top {
             background: var(--tier-color);
-            padding: 12px 15px;
+            padding: 8px 12px;
             border-bottom: 3px dashed rgba(0,0,0,0.2);
         }
         
         .tier-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #fff;
             text-transform: uppercase;
@@ -218,13 +220,13 @@
         }
         
         .tier-bottom {
-            padding: 20px 15px;
+            padding: 12px 10px;
             color: #2a2a2a;
         }
         
         .tier-price {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #1a1a1a;
         }
@@ -322,7 +324,7 @@
         
         .winner-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #d4af37;
             margin-bottom: 20px;
         }
@@ -371,7 +373,7 @@
         
         @media (max-width: 480px) {
             .tiers-grid { grid-template-columns: 1fr; }
-            .felt-bg { padding: 20px 15px; }
+            .felt-bg { padding: 12px 10px; }
         }
     </style>
 </head>
