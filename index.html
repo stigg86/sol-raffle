@@ -92,18 +92,15 @@
         .wallet-section { 
             text-align: center; 
             margin-bottom: 40px;
-            padding: 25px;
-            background: linear-gradient(180deg, rgba(10,25,40,0.8) 0%, rgba(5,15,25,0.9) 100%);
-            border: 1px solid rgba(0,255,255,0.15);
-            border-radius: 8px;
+            padding: 20px;
         }
         
         .wallet-btn {
             background: linear-gradient(180deg, #00b4d8 0%, #0077b6 100%);
             border: 2px solid #00ffff;
-            padding: 18px 60px;
+            padding: 12px 35px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
@@ -111,7 +108,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: all 0.3s;
-            box-shadow: 0 0 30px rgba(0,180,216,0.4), 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(0,180,216,0.3);
         }
         
         .wallet-btn:hover {
@@ -431,7 +428,7 @@
             </header>
             
             <div class="wallet-section">
-                <button class="wallet-btn" id="wallet-btn">Connect solana wallet</button>
+                <button class="wallet-btn" id="wallet-btn">Connect Wallet</button>
                 <p id="wallet-status"></p>
             </div>
             
@@ -682,7 +679,7 @@
         
         window.addEventListener('load', () => {
             if (window.solana) {
-                document.getElementById('wallet-btn').textContent = 'Connect solana wallet';
+                document.getElementById('wallet-btn').textContent = 'Connect Wallet';
             }
         });
     </script>
