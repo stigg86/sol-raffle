@@ -65,24 +65,24 @@
         }
         
         .wallet-btn {
-            background: linear-gradient(180deg, #d4af37 0%, #b8962e 100%);
-            border: 2px solid #ffd700;
+            background: linear-gradient(180deg, #00b4d8 0%, #0077b6 100%);
+            border: 2px solid #00ffff;
             padding: 18px 50px;
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
             font-weight: 600;
             border-radius: 4px;
             cursor: pointer;
-            color: #0a0a0a;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            color: #fff;
+            text-transform: none;
+            letter-spacing: 1px;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+            box-shadow: 0 4px 20px rgba(0,180,216,0.3);
         }
         
         .wallet-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(212,175,55,0.5);
+            box-shadow: 0 6px 30px rgba(0,180,216,0.5);
         }
         
         .wallet-btn:disabled { 
@@ -388,7 +388,7 @@
             </header>
             
             <div class="wallet-section">
-                <button class="wallet-btn" id="wallet-btn">Connect Solana Wallet</button>
+                <button class="wallet-btn" id="wallet-btn">Connect solana wallet</button>
                 <p id="wallet-status"></p>
             </div>
             
@@ -639,7 +639,7 @@
         
         window.addEventListener('load', () => {
             if (window.solana) {
-                document.getElementById('wallet-btn').textContent = 'Connect Solana Wallet';
+                document.getElementById('wallet-btn').textContent = 'Connect solana wallet';
             }
         });
     </script>
