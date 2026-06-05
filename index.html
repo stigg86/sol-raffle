@@ -85,7 +85,17 @@
             text-transform: uppercase;
             letter-spacing: 6px;
             margin-top: 10px;
-            text-shadow: 0 0 10px rgba(0,212,232,0.5);
+            text-shadow: 0 0 10px #00d4e8, 0 0 20px #00d4e8, 0 0 30px #0077b6;
+            animation: blueNeonFlicker 3s infinite;
+        }
+        
+        @keyframes blueNeonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #00d4e8, 0 0 20px #00d4e8, 0 0 30px #0077b6;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
         }
         
         .solana-badge {
