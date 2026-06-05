@@ -29,11 +29,22 @@
         .container { max-width: 1000px;  }
         
         /* Header */
+        .header-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, rgba(0,212,232,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
         header { 
             text-align: center; 
-            padding-bottom: 30px; 
+            padding: 30px 20px 40px;
             margin-bottom: 40px;
-            border-bottom: 1px solid rgba(212,175,55,0.3);
+            position: relative;
         }
         
         .logo {
@@ -49,35 +60,49 @@
             color: #fff;
         }
         
+        .logo-img {
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            0% { filter: drop-shadow(0 0 15px rgba(0,255,255,0.2)); }
+            100% { filter: drop-shadow(0 0 30px rgba(0,255,255,0.5)); }
+        }
+        
         .tagline {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: #8b8b7a;
+            font-size: 0.85rem;
+            color: #00d4e8;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             margin-top: 10px;
+            text-shadow: 0 0 10px rgba(0,212,232,0.5);
         }
         
         /* Wallet Section */
         .wallet-section { 
             text-align: center; 
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(180deg, rgba(10,25,40,0.8) 0%, rgba(5,15,25,0.9) 100%);
+            border: 1px solid rgba(0,255,255,0.15);
+            border-radius: 8px;
         }
         
         .wallet-btn {
             background: linear-gradient(180deg, #00b4d8 0%, #0077b6 100%);
             border: 2px solid #00ffff;
-            padding: 18px 50px;
+            padding: 18px 60px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 6px;
             cursor: pointer;
             color: #fff;
-            text-transform: none;
-            letter-spacing: 1px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,180,216,0.3);
+            box-shadow: 0 0 30px rgba(0,180,216,0.4), 0 4px 15px rgba(0,0,0,0.3);
         }
         
         .wallet-btn:hover {
@@ -102,49 +127,57 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 30px;
-            padding: 25px;
-            background: rgba(212,175,55,0.08);
-            border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 4px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(10,25,40,0.9) 0%, rgba(5,15,25,0.95) 100%);
+            border: 1px solid rgba(0,255,255,0.2);
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
         }
         
         .stat-item {
             text-align: center;
+            padding: 10px 0;
+            border-right: 1px solid rgba(0,255,255,0.1);
         }
+        
+        .stat-item:last-child { border-right: none; }
         
         .stat-value {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #d4af37;
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0,255,255,0.5);
         }
         
         .stat-label {
-            font-size: 0.75rem;
-            color: #8b8b7a;
+            font-size: 0.7rem;
+            color: #7a9ab8;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 5px;
+            letter-spacing: 3px;
+            margin-top: 8px;
         }
         
         /* Section Title */
         .section-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 400;
             color: #fff;
             text-align: center;
             margin-bottom: 30px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 6px;
+            text-shadow: 0 0 20px rgba(0,255,255,0.3);
         }
         
         .section-title::before,
         .section-title::after {
-            content: "━━";
-            color: #d4af37;
-            margin: 0 15px;
+            content: "//";
+            color: #00d4e8;
+            margin: 0 20px;
+            opacity: 0.7;
         }
         
         /* Tiers Grid */
@@ -383,7 +416,7 @@
     <div class="felt-bg">
         <div class="container">
             <header>
-                <img src="images/logo_nobg.png" alt="Infinite Raffle" style="max-width: 280px; margin-bottom: 15px;">
+                <img src="images/logo_nobg.png" alt="Infinite Raffle" style="max-width: 350px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(0,255,255,0.3));" class="logo-img">
                 <div class="tagline">Automated Draws • 99% to Winner • 1% Dev</div>
             </header>
             
