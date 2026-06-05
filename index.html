@@ -153,7 +153,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin-bottom: 30px;
-            padding: 0 20px;
+            padding: 0 5px;
         }
         
         .tier-card {
@@ -365,7 +365,7 @@
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .logo { font-size: 2.5rem; }
             .tiers-grid { grid-template-columns: repeat(2, 1fr); }
             .stats-bar { grid-template-columns: 1fr; gap: 15px; }
@@ -373,8 +373,8 @@
             .section-title::after { display: none; }
         }
         
-        @media (max-width: 480px) {
-            .tiers-grid { grid-template-columns: 1fr; }
+        @media (max-width: 960px) {
+            .tiers-grid { grid-template-columns: repeat(2, 1fr); }
             .felt-bg { padding: 8px 6px; }
         }
     </style>
