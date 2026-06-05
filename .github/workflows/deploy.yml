@@ -1,0 +1,46 @@
+name: Deploy Raffle Program
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: rustdesk/rustup@v1.25.0
+        with:
+          target: x86_64-unknown-linux-gnu
+
+      - name: Install Solana CLI
+        run: |
+          sh -c "$(curl -sSfL https://release.solana.com/stable/install.sh)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+
+      - name: Install Anchor
+        run: |
+          cargo install --git https://github.com/coral-xyz/anchor --tag v0.30.0 anchor-cli --locked
+
+      - name: Build program
+        run: anchor build
+
+      - name: Deploy to Devnet
+        run: |
+          solana config set --url devnet
+          solana-keygen new --no-passphrase -o id.json
+          solana airdrop 2
+          
+          # Deploy program
+          anchor deploy --provider.cluster devnet --keypair id.json
+        env:
+          SOLANA_PAYER: ${{ secrets.SOLANA_PAYER_KEYPAIR }}
+
+      - name: Output Program ID
+        run: |
+          echo "Program ID: $(anchor keys show --program -o json | jq -r '.address')"

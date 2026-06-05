@@ -1,14 +1,14 @@
-[features]
-seeds = true
-[programs.localnet]
-sol_raffle = "R4ffL3gDqJ7FqKmL6KjHsGdN5xjG2vV9c9Q7Y8pMnKx"
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[programs]
+devnet = "R4ffL3gDqJ7FqKmL6KjHsGdN5xjG2vV9c9Q7Y8pMnKx"
 
 [registry]
-url = "https://api.apr.dev"
-
-[provider]
-cluster = "localnet"
-wallet = "~/.config/solana/id.json"
+url = "https://anchor.projectserum.com"
 
 [scripts]
 test = "anchor test"
+build = "anchor build"
+deploy = "anchor deploy"
